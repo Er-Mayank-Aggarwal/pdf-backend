@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head id="Head1"><meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10" /><meta http-equiv="Cache-Control" content="no-cache" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" /><title>
+	MBM :: Examination Results
+</title>
+
+    <style type="text/css">
+        .forlabel {
+            display: block;
+            width: 500px;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+
+        .white_content-new-1 table td {
+            font-weight: normal;
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+
+        function Focus(objname, waterMarkText) {
+
+            obj = document.getElementById(objname);
+
+            obj.value = "";
+
+            if (obj.value == waterMarkText) {
+
+                obj.value = "";
+
+                obj.className = "WaterMarkedTextBox";
+
+                if (obj.value == "User Name" || obj.value == "" || obj.value == null) {
+
+                    obj.style.color = "gray";
+
+                }
+
+            }
+
+        }
+
+        function Blur(objname, waterMarkText) {
+
+            obj = document.getElementById(objname);
+
+            if (obj.value == "") {
+
+                obj.value = waterMarkText;
+
+                obj.className = "WaterMarkedTextBox";
+
+                obj.style.color = "gray";
+
+            }
+
+        }
+    </script>
+    <style type="text/css">
+        .WaterMarkedTextBox {
+            height: 16px;
+            width: 268px;
+            padding: 2px 2px;
+            border: 1px solid #BEBEBE;
+            background-color: #F0F8FF;
+            color: gray;
+            font-size: 8pt;
+            text-align: left;
+        }
+
+        .logbutt {
+            background: #ffac00 none repeat scroll 0 0 !important;
+        }
+        .loginfooter {
+            position: fixed;
+            bottom: 0; 
+        }
+    </style>
+
+    <script src="../include/bootstrap/bootstrap.js"></script>
+    <link href="../include/bootstrap/bootstrap.css" rel="stylesheet" /><link href="../include/bootstrap/style_bootstrap.css" rel="stylesheet" />
+
+
+    <script type="text/javascript" language="javascript">
+        function ShowSearch() {
+            //debugger;
+            document.getElementById('SearchDiv').style.display = 'block';
+            document.getElementById('maindivpopup').style.display = 'block';
+
+        }
+        function HideSearch() {
+            document.getElementById('SearchDiv').style.display = 'None';
+            document.getElementById('maindivpopup').style.display = 'None';
+        }
+        function Show() {
+            //debugger;
+            document.getElementById('Search1Div').style.display = 'block';
+
+        }
+        function Hide() {
+            document.getElementById('Search1Div').style.display = 'None';
+        }
+    </script>
+<link href="../App_Themes/skyblue/default.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/skyblue/GridviewScroll.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/skyblue/responsive.css" type="text/css" rel="stylesheet" /><link href="../App_Themes/skyblue/stylesheet.css" type="text/css" rel="stylesheet" /></head>
+
+<body>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-63046954-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    <form name="form1" method="post" action="GetExamResult.aspx" id="form1">
+<div>
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="q9YkVBQ0FuYlChg30s444VWy60/mxGqqjMN6azs8zJjBr5hqYCH4KwnvEflHRDbDbynKY/PlZ3nhSMuH/B2rpQM5xgajYtFi2Y5YclxWneiQb4gxwGoOWz2I+gle2OK6but+dRMlAgbDGQIlmGSioLs4cJvZUPF5P3YS6GpvhiJjiHporiRC+0OHdz4593y2pJU6adeEoXy2pqoyk4LyZfuRaqLEO5H8OQPdf4NyZmRfEl3a" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZLpsGiQWJm4q4S0nrN41DBHCfZs1j4ui1QcvbegECjQ0cfyS3A2&amp;t=638628422640000000" type="text/javascript"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+var Anthem_FormID = "form1";
+//]]>
+</script>
+<script src="/WebResource.axd?d=3aJe5EVz5a65qlRd-GY67iYoy7ojYTwR-tSd9c0CDsUmcHt1KR-yKVXNeH-qFlPglp1xPCQ8ZdH4bXP1PBxgFi4GWT01&amp;t=638181276180000000" type="text/javascript"></script>
+<script src="/WebResource.axd?d=JoBkLzP19aTuxbWOhHobYn0gtx8atRnzU5XCgjqGt9GuU7aHKtN1F_sxVWXjKXiM9y657w2&amp;t=638628422640000000" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7D3C9CE8" />
+	<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+	<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="euoAzzB7qxKpbYjA7yX5KgIS3+3MDZFlbsGEYTimAOWwCP4HkpX2cMyMpCqB6fTMog2p4nkqhDje7uSrzv05wcw6elAq8PNqLebKxBlV7NqaLlZoOjAg/Xk0/qnJsZBNg0QnQOXGLLqzDSr0SErB0Fa1A1g=" />
+</div>
+        <div class="headermain">
+            <div class="empheader">
+                <div class="col-md-6">
+                    <div class="">
+                        <div class="logo">
+                            <a href="#" style="float: left; margin: 13px 0 0 0;">                               
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul class="header_pnl_link">
+                        <li class="home"><a href="../main.aspx">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="width: 490px;">
+
+            <div class="centerpage opcitydwnbg" style="min-height: 280px; margin-top: 120px; width: 490px;">
+                <div style="padding-bottom: 10px;" class="line1">
+                    <h2>B.E.(CBCS) ENGINEERING Vth SEM ( COMPUTER  SCIENCE AND  ENGINEERING(ARTIFICIAL  INTELLIGENCE  AND MACHINE  LEARNING) ) Examination Result 2024 - 2025</h2>
+                </div>
+
+                <div class="line1" style="padding-bottom: 10px;">
+                    <table width="100%">
+                        <tr>
+                            <td class="fieldname" style="color: #ffffff; padding-top: 3px;">Roll Number  :
+                            </td>
+                            <td>
+                                <span id="Anthem_txtRollNo__"><input name="txtRollNo" type="text" maxlength="25" id="txtRollNo" Class="form-control" style="height:30px;" /></span>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    &nbsp;
+                    
+                </div>
+
+
+                <div class="line1" style="padding-bottom: 10px;">
+                    <div class="fieldname" style="color: #ffffff; width:127px;">
+                        &nbsp;
+                    </div>
+                    <span id="Anthem_btnGetResult__"><input type="submit" name="btnGetResult" value="Get Result" onclick="return blankcheck();javascript:Anthem_FireCallBackEvent(this,event,&#39;btnGetResult&#39;,&#39;&#39;,true,&#39;&#39;,&#39;&#39;,&#39;WAIT...&#39;,true,null,null,null,true,true);return false;" id="btnGetResult" class="logbutt" style="margin-left: 7px;" /></span>
+                    <span id="Anthem_btnRest__"><input type="submit" name="btnRest" value="Reset" id="btnRest" class="logbutt" /></span>
+                    
+                </div>
+
+                <div class="line2">
+                    <span id="Anthem_lblError__"><span id="lblError" class="lblmessage" style="font-weight:bold;text-decoration:none;"></span></span>
+                    <span id="Anthem_lblcycleid__"></span>
+                    <span id="Anthem_lblConfigid__"></span>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        
+
+        <div id="SearchDiv" class="white_content-new-1" style="display: none;">
+
+            <div class="popupboxouter">
+
+                <div class="popupbox">
+                    <div onclick=" HideSearch(); " class="close-1">
+                        X
+                    </div>
+
+                    <div class="table-responsive no-padding">
+
+                        <div style="overflow-y: scroll; height: 380px;">
+                            <table border="0" cellpadding="0" cellspacing="0" class="new-table table" width="100%">
+                                <tr>
+                                    <td colspan="6">
+                                        <h3>Personal Details (व्यक्तिगत विवरण)</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="vtext">Enrollment No. (नामांकन नंबर )</td>
+                                    <td class="colon">:</td>
+                                    <td style="width: 25%">
+                                        <span id="Anthem_lblRegNo__"><span id="lblRegNo"></span></span>
+                                    </td>
+                                    <td class="vtext" style="width: 18%">Roll No. (अनुक्रमांक नंबर)</td>
+                                    <td class="colon">:</td>
+                                    <td>
+                                        <span id="Anthem_lblRollNo__"><span id="lblRollNo"></span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="vtext" style="width: 25%">Candidate's Name (छात्र  का नाम)</td>
+                                    <td class="colon">:</td>
+                                    <td style="width: 25%">
+                                        <span id="Anthem_lblName__"><span id="lblName"></span></span>
+                                    </td>
+                                    <td class="vtext" style="width: 18%">College (कॉलेज)</td>
+                                    <td class="colon">:</td>
+                                    <td>
+                                        <span id="Anthem_lblCollegeName__"><span id="lblCollegeName"></span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="vtext">Father's Name (पिता का नाम)</td>
+                                    <td class="colon">:</td>
+                                    <td>
+                                        <span id="Anthem_lblFatherName__"><span id="lblFatherName"></span></span>
+                                    </td>
+                                    <td class="vtext" style="width: 18%">Degree (डिग्री)</td>
+                                    <td class="colon">:</td>
+                                    <td>
+                                        <span id="Anthem_lblDegree__"><span id="lblDegree"></span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="vtext">Mother's Name (माता का नाम)</td>
+                                    <td class="colon">:</td>
+                                    <td>
+                                        <span id="Anthem_lblMotherName__"><span id="lblMotherName"></span></span>
+                                    </td>
+                                    <td>
+                                        
+                                        <span id="Anthem_lblAcaSem__"><span id="lblAcaSem" class="vtext" style="width: 18%"></span></span></td>
+                                    <td class="colon">:</td>
+                                    <td>
+                                        <span id="Anthem_lblCAdd__"><span id="lblCAdd"></span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td class="vtext" style="width: 18%">Gender (लिंग)</td>
+                                    <td class="colon">:</td>
+                                    <td>
+                                        <span id="Anthem_lblGender__"><span id="lblGender"></span></span>
+                                    </td>
+                                    <td class="vtext">Category (श्रेणी)</td>
+                                    <td class="colon">:</td>
+                                    <td>
+                                        <span id="Anthem_lblCastCat__"><span id="lblCastCat"></span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8" class="tablesubheading">
+                                        <div style="font-weight: bold; font-size: 16px; color: Blue">
+                                            <u><a href="#" onclick="Show();"><span style="color: Blue">Your result is RL.</span></a></u>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table border="0" cellpadding="0" cellspacing="0" class="new-table table" width="100%">
+                                <tr>
+                                    <td>
+                                        <h3>Paper Details (विषय विवरण)</h3>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div id="Anthem_dgDetails__"><div>
+
+</div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3>Previous Year/Semester CarryForward Marks Details</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div id="Anthem_dgPeriviousYear__"><div>
+
+</div></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="lblmessage">
+                                        <span id="Anthem_lblMsg__"><span id="lblMsg"></span></span></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="Search1Div" class="white_content-new-1" style="display: none;">
+            <div class="popupboxouter">
+                <div class="popupbox">
+                    
+                    <div onclick="document.getElementById('Search1Div').style.display='none';" class="close-1">
+                        X
+                    </div>
+                    <div class="table-responsive no-padding">
+                        <table cellspacing="1" class="table" cellpadding="1" rules="all" border="1" style="border-collapse: collapse; margin-top: 5px !important;">
+                            <tr style="background: #3169a5; color: #fff">
+                                <th width="15%">S. No.</th>
+                                <th>Symbol</th>
+                                <th width="">Reason</th>
+                            </tr>
+                            <tr>
+                                <td align="center">1.</td>
+                                <td align="center">-</td>
+                                <td>Marks is not available for that paper code.</td>
+                            </tr>
+                            <tr>
+                                <td align="center">2.</td>
+                                <td align="center">‘A’ instead of marks and Result is ‘RL’.</td>
+                                <td>Marks and absent status both mentioned together in ‘Marks details sheet’.</td>
+                            </tr>
+                            <tr>
+                                <td align="center">3</td>
+                                <td align="center">&nbsp;</td>
+                                <td>Incorrect Course Allocation of Student.</td>
+                            </tr>
+                            <tr>
+                                <td align="center">4</td>
+                                <td align="center">&nbsp;</td>
+                                <td>Minimum Aggregate Total of 1<sup>st</sup> and 2<sup>nd</sup> Year is not met with the required Aggregate Total.</td>
+                            </tr>
+                            <tr>
+                                <td align="center">5</td>
+                                <td align="center">&nbsp;</td>
+                                <td>Obtain marks is greater than Max Marks.</td>
+                            </tr>
+                            <tr>
+                                <td align="center">6</td>
+                                <td align="center">&nbsp;</td>
+                                <td>Repetition of paper code with different Marks in ‘Marks details sheet’.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+         
+        <div class="loginfooter"><a href="#" class="explogologinpg"></a></div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+WebForm_AutoFocus('txtRollNo');//]]>
+</script>
+</form>
+</body>
+<script src="../include/jquery.js"></script>
+<script src="../include/jquery.backstretch.min.js"></script>
+<script>
+    $.backstretch("../img/result-declare.jpg", { speed: 500 });
+</script>
+<script type="text/javascript">
+    function back() {
+        window.location = "ExamResultDeclare.aspx";
+    }
+
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+</script>
+</html>

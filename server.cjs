@@ -1,0 +1,107 @@
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const puppeteer = require('puppeteer');
+const cors = require('cors');
+const axios = require('axios');
+const { mergePDFs } = require('./utils/mergePDFs.cjs');
+
+const app = express();
+const PORT = 5000;
+
+app.use(cors());
+app.use(express.json());
+app.use('/merged', express.static(path.join(__dirname, 'merged')));
+
+const downloadsDir = path.join(__dirname, 'downloads');
+const mergedDir = path.join(__dirname, 'merged');
+
+const cleanFolder = (folder) => {
+  if (fs.existsSync(folder)) {
+    fs.readdirSync(folder).forEach(file => fs.unlinkSync(path.join(folder, file)));
+  } else {
+    fs.mkdirSync(folder);
+  }
+};
+
+const downloadPDF = async (pdfUrl, filePath) => {
+  const response = await axios.get(pdfUrl, { responseType: 'arraybuffer' });
+  fs.writeFileSync(filePath, response.data);
+};
+
+app.post('/generate-pdf', async (req, res) => {
+  const { startRoll, endRoll, websiteURL } = req.body;
+  const notFound = [];
+
+  const prefix = startRoll.slice(0, startRoll.length - 4);
+  const startNum = parseInt(startRoll.slice(-4));
+  const endNum = parseInt(endRoll.slice(-4));
+
+  cleanFolder(downloadsDir);
+  cleanFolder(mergedDir);
+
+  const browser = await puppeteer.launch({
+    headless: 'new', // headless mode
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+
+  const page = await browser.newPage();
+
+  for (let i = startNum; i <= endNum; i++) {
+    const roll = `${prefix}${i.toString().padStart(4, '0')}`;
+    console.log(`\n➡️ Processing Roll No: ${roll}`);
+
+    try {
+      await page.goto(websiteURL, { waitUntil: 'networkidle2' });
+
+      // Open result form
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'networkidle2' }),
+        page.evaluate(() => {
+          __doPostBack('dgResultUG$ctl17$lnkResultUG', '');
+        }),
+      ]);
+
+      await page.waitForSelector('#txtRollNo');
+      await page.evaluate(() => (document.querySelector('#txtRollNo').value = ''));
+      await page.type('#txtRollNo', roll);
+      await page.click('#btnGetResult');
+      console.log(`⏳ Waiting for result...`);
+
+      await page.waitForSelector('#lblName', { timeout: 4000 });
+      console.log(`✅ Result found for ${roll}`);
+
+      // 🧠 Extract PDF download link (e.g. from "Download Result" button)
+      const pdfUrl = await page.evaluate(() => {
+        // Adjust this to your website's actual download element
+        const link = document.querySelector('a[href$=".pdf"]');
+        return link ? link.href : null;
+      });
+
+      if (!pdfUrl) throw new Error('PDF URL not found');
+
+      const pdfPath = path.join(downloadsDir, `${roll}.pdf`);
+      await downloadPDF(pdfUrl, pdfPath);
+      console.log(`📄 Downloaded: ${roll}.pdf`);
+
+    } catch (err) {
+      console.error(`❌ Failed for ${roll}: ${err.message}`);
+      notFound.push(roll);
+    }
+  }
+
+  await browser.close();
+
+  const mergedPath = path.join(mergedDir, 'Final_Merged.pdf');
+  await mergePDFs(downloadsDir, mergedPath);
+  console.log(`✅ Merged PDF created at: ${mergedPath}`);
+
+  res.json({
+    downloadURL: '/merged/Final_Merged.pdf',
+    notFound,
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});

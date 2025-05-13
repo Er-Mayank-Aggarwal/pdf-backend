@@ -1,0 +1,4 @@
+[0511/141349.352:INFO:CONSOLE(8)] "Uncaught Error: Bootstrap's JavaScript requires jQuery", source: https://mbmiums.in/(S(rlef5bdljl245ihab2ie0wey))/include/bootstrap/bootstrap.js (8)
+[0511/141349.625:INFO:CONSOLE(206)] "Uncaught ReferenceError: blankcheck is not defined", source: https://mbmiums.in/(S(rlef5bdljl245ihab2ie0wey))/Results/ExamResultDeclare.aspx (206)
+[0511/141353.274:INFO:CONSOLE(8)] "Uncaught Error: Bootstrap's JavaScript requires jQuery", source: https://mbmiums.in/(S(rlef5bdljl245ihab2ie0wey))/include/bootstrap/bootstrap.js (8)
+[0511/141353.492:INFO:CONSOLE(206)] "Uncaught ReferenceError: blankcheck is not defined", source: https://mbmiums.in/(S(rlef5bdljl245ihab2ie0wey))/Results/ExamResultDeclare.aspx (206)

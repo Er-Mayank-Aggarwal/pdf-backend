@@ -16,7 +16,6 @@ app.use('/merged', express.static(path.join(__dirname, 'merged')));
 const downloadsDir = path.join(__dirname, 'downloads');
 const mergedDir = path.join(__dirname, 'merged');
 
-// Ensure folders exist or create them
 if (!fs.existsSync(downloadsDir)) {
   fs.mkdirSync(downloadsDir);
   console.log('Created downloads folder');
@@ -43,6 +42,8 @@ app.get('/', (req, res) => {
   res.send('🚀 PDF backend server is running!');
 });
 
+app.get('/favicon.ico', (req, res) => res.status(204));
+
 app.post('/', async (req, res) => {
   const { startRoll, endRoll, websiteURL } = req.body;
   if (!startRoll || !endRoll || !websiteURL) {
@@ -58,7 +59,7 @@ app.post('/', async (req, res) => {
   cleanFolder(mergedDir);
 
   const browser = await puppeteer.launch({
-    headless: 'new',
+    headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
@@ -71,7 +72,6 @@ app.post('/', async (req, res) => {
     try {
       await page.goto(websiteURL, { waitUntil: 'networkidle2' });
 
-      // This block depends on the site's actual navigation — adjust as needed
       await Promise.all([
         page.waitForNavigation({ waitUntil: 'networkidle2' }),
         page.evaluate(() => {
@@ -117,6 +117,14 @@ app.post('/', async (req, res) => {
   });
 });
 
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled Rejection:', reason);
+});
+
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });

@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
   res.send('🚀 PDF backend server is running!');
 });
 
-app.post('/generate-pdf', async (req, res) => {
+app.post('/', async (req, res) => {
   const { startRoll, endRoll, websiteURL } = req.body;
   if (!startRoll || !endRoll || !websiteURL) {
     return res.status(400).json({ error: 'Missing startRoll, endRoll or websiteURL' });
